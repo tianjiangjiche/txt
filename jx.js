@@ -41,13 +41,13 @@ $.cookieArr = [];
 $.currentCookie = '';
 $.tokenArr = [{"farm_jstoken":"c944ab8234ab7148faac32bbc07308af","phoneid":"9c1dcf6515d120018ed448f70a93b30c18379550","timestamp":"1621825169670","pin":"jd_5ad356528dd12"}];
 $.currentToken = {c944ab8234ab7148faac32bbc07308af};
-$.strPhoneID = '9c1dcf6515d120018ed448f70a93b30c18379550';
+$.strPhoneID = '';
 $.strPgUUNum = '';
 $.userName = '';
 
 !(async () => {
   if (!getCookies()) return;
-  if (!getTokens()) return;
+  if (!getTokens(c944ab8234ab7148faac32bbc07308af)) return;
   for (let i = 0; i < $.cookieArr.length; i++) {
     $.currentCookie = $.cookieArr[i];
     $.currentToken = $.tokenArr[i];
@@ -124,7 +124,7 @@ function getCookies() {
   return true;
 }
 
-function getTokens() {
+function getTokens(c944ab8234ab7148faac32bbc07308af) {
   if ($.isNode()) {
     Object.keys(jdTokenNode).forEach((item) => {
       $.tokenArr.push(jdTokenNode[item] ? JSON.parse(jdTokenNode[item]) : '{[{"farm_jstoken":"c944ab8234ab7148faac32bbc07308af","phoneid":"9c1dcf6515d120018ed448f70a93b30c18379550","timestamp":"1621825169670","pin":"jd_5ad356528dd12"}]}');
